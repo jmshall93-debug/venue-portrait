@@ -2,6 +2,8 @@
 
 > Editorial review intelligence for pubs, bars, restaurants and hospitality businesses.
 
+**[Live demo on Streamlit Cloud](#live-demo)** · [Source on GitHub](https://github.com/jmshall93-debug/venue-portrait)
+
 Turn a CSV of customer reviews into an editorial report highlighting what customers actually talk about - not just the average star rating.
 
 ![Dashboard](assets/hero.png)
@@ -80,11 +82,20 @@ Export reviews as a CSV with **date**, **rating** (1-5), and **review text**. Op
 
 ---
 
-## Deploy
+## Live demo
 
-Host on [Streamlit Community Cloud](https://share.streamlit.io):
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://venue-portrait.streamlit.app/)
 
-1. Push this repo to GitHub.
-2. Create a new app at share.streamlit.io.
-3. Select repo **venue-portrait**, branch **main**, main file **app.py**.
-4. Deploy.
+Opens the bundled sample report for **The 90th Minute** (90 reviews, Aug 2025-May 2026).
+
+### Deploy (first time)
+
+1. Sign in at [share.streamlit.io](https://share.streamlit.io).
+2. Click **Create app**.
+3. Repository: `jmshall93-debug/venue-portrait`, branch: `main`, main file: `app.py`.
+4. Click **Deploy**. Copy the `https://….streamlit.app/` URL.
+5. Update the badge link above to your live URL and push to `main`.
+
+No secrets or API keys required. The app loads `data/sample_pub_reviews.csv` by default.
+
+---

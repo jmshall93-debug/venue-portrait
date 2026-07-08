@@ -92,4 +92,4 @@ Template copy only (no Groq/LLM). Offline by default.
 ## Links
 
 - Repo: https://github.com/jmshall93-debug/venue-portrait
-- Live: *(not deployed yet)*
+- Live: https://venue-portrait.streamlit.app/ (set on first Streamlit Cloud deploy)
