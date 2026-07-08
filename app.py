@@ -1,5 +1,7 @@
 """Venue Portrait - Streamlit UI."""
 
+from __future__ import annotations
+
 from pathlib import Path
 
 import plotly.graph_objects as go
@@ -369,7 +371,7 @@ def main() -> None:
     if arc_fig is None:
         st.warning("No dated reviews for a season arc.")
     else:
-        st.plotly_chart(arc_fig, use_container_width=True, config=PLOTLY_CONFIG)
+        st.plotly_chart(arc_fig, width="stretch", config=PLOTLY_CONFIG)
 
     left_chart, right_chart = st.columns(2)
     with left_chart:
@@ -377,15 +379,14 @@ def main() -> None:
         if theme_fig is None:
             st.warning("No theme mentions in this export.")
         else:
-            st.plotly_chart(theme_fig, use_container_width=True, config=PLOTLY_CONFIG)
+            st.plotly_chart(theme_fig, width="stretch", config=PLOTLY_CONFIG)
 
     with right_chart:
         star_fig = star_histogram_chart(profile)
         if star_fig is None:
             st.warning("No star ratings in this export.")
         else:
-            st.plotly_chart(star_fig, use_container_width=True, config=PLOTLY_CONFIG)
+            st.plotly_chart(star_fig, width="stretch", config=PLOTLY_CONFIG)
 
 
-if __name__ == "__main__":
-    main()
+main()
