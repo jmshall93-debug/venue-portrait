@@ -47,5 +47,5 @@ Granular build: one step per review. No git push or deploy until Steps 13-14.
 
 ## Links
 
-- Repo: *(not created yet)*
+- Repo: https://github.com/jmshall93-debug/venue-portrait
 - Live: *(not deployed yet)*

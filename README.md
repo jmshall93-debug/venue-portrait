@@ -60,7 +60,7 @@ py -m venv .venv
 
 *Planned Step 13-14.*
 
-- GitHub: `jmshall93-debug/venue-portrait` (not created yet)
+- GitHub: [github.com/jmshall93-debug/venue-portrait](https://github.com/jmshall93-debug/venue-portrait)
 - Streamlit Community Cloud, main file `app.py`
 
 ## Out of scope (v1)
