@@ -150,15 +150,19 @@ def _excerpt(text: str, max_len: int = QUOTE_MAX_LEN) -> str:
 def _representative_quotes(df: pd.DataFrame, themes: pd.Series) -> dict[str, str]:
     quotes: dict[str, str] = {}
     used_excerpts: set[str] = set()
+    used_prefixes: set[str] = set()
+    prefix_len = 50
     for theme in themes.index:
         mask = df[COL_TEXT].apply(lambda t: theme in _themes_for_text(t))
         matches = df.loc[mask].sort_values(COL_RATING, ascending=False)
         for _, row in matches.iterrows():
             excerpt = _excerpt(row[COL_TEXT])
-            if excerpt in used_excerpts:
+            prefix = excerpt[:prefix_len]
+            if excerpt in used_excerpts or prefix in used_prefixes:
                 continue
             quotes[theme] = excerpt
             used_excerpts.add(excerpt)
+            used_prefixes.add(prefix)
             break
         if theme not in quotes and not matches.empty:
             quotes[theme] = _excerpt(matches.iloc[0][COL_TEXT])

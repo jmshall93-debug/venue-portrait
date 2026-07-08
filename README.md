@@ -21,17 +21,11 @@ Turn a CSV of customer reviews into an editorial report highlighting what custom
 
 ## Example Dashboard
 
-### Hero
-
-![Hero](assets/hero.png)
-
 ### Charts
 
 ![Charts](assets/charts.png)
 
-### Full Report
-
-Full report walkthrough with bundled sample data:
+### Full report walkthrough
 
 ![Demo](assets/demo.gif)
 
