@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.streamlit/secrets.toml
+
+# Private review exports (use sample_pub_reviews.csv in repo)
+data/private_reviews.csv
+data/uploads/
