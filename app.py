@@ -120,6 +120,7 @@ div[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlock"] {{
 }}
 .quote-strip {{
     margin-top: 0.85rem;
+    margin-bottom: 1.25rem;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.65rem;
@@ -151,9 +152,16 @@ div[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlock"] {{
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin: 1.1rem 0 0.35rem 0;
+    margin: 1.35rem 0 0.5rem 0;
     padding-top: 0.85rem;
     border-top: 1px solid {BORDER};
+}}
+[data-testid="stPlotlyChart"] {{
+    background: {SURFACE};
+    border: 1px solid {BORDER};
+    border-radius: 10px;
+    padding: 0.35rem;
+    margin-bottom: 0.35rem;
 }}
 </style>
 """
@@ -271,8 +279,14 @@ def theme_lollipop_chart(profile: ReviewProfile, limit: int = 7) -> go.Figure | 
     fig.update_layout(
         **_layout(
             height=SMALL_CHART_HEIGHT,
+            margin=dict(t=48, l=12, r=16, b=12),
             xaxis=dict(title=None, rangemode="tozero"),
-            yaxis=dict(title=None, categoryorder="array", categoryarray=weights.index.map(_theme_label).tolist()),
+            yaxis=dict(
+                title=None,
+                categoryorder="array",
+                categoryarray=weights.index.map(_theme_label).tolist(),
+                automargin=True,
+            ),
         )
     )
     fig.update_layout(title=dict(text="What gets mentioned", font=dict(size=13, color=MUTED), x=0, xanchor="left"))
@@ -299,6 +313,7 @@ def star_histogram_chart(profile: ReviewProfile) -> go.Figure | None:
     fig.update_layout(
         **_layout(
             height=SMALL_CHART_HEIGHT,
+            margin=dict(t=48, l=12, r=12, b=40),
             xaxis_title=None,
             yaxis_title=None,
         )
