@@ -84,7 +84,7 @@ Export reviews as a CSV with **date**, **rating** (1-5), and **review text**. Op
 
 ## Live demo
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://venue-portrait.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://venue-portrait-9ytnl8d4uvkcg5sqsbng52.streamlit.app/)
 
 Opens the bundled sample report for **The 90th Minute** (90 reviews, Aug 2025-May 2026).
 
