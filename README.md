@@ -1,77 +1,96 @@
 ﻿# Venue Portrait
 
-Upload a CSV of customer reviews and get a one-page editorial portrait of **what punters actually say**: atmosphere, pint, matchday buzz, food, service. Not just an average star rating.
+> Editorial review intelligence for pubs, bars, restaurants and hospitality businesses.
 
-Sample venue: fictional matchday pub **The 90th Minute**. Python, Streamlit, Plotly. Pitch-night green and lime, split hero, quote strip, review charts.
+Turn a CSV of customer reviews into an editorial report highlighting what customers actually talk about - not just the average star rating.
 
-**Status:** In progress. See [`BUILD_LOG.md`](BUILD_LOG.md). Steps 1-10c done; hero, stats, quotes, and all three charts live in the browser shell.
+![Dashboard](assets/hero.png)
 
-## Goal
+---
 
-Turn review exports into a **voice of the venue** report a pub owner or marketer can skim in one screen: headline copy, key stats, pulled quotes, and charts for rating trend and recurring themes.
+## Features
 
-## What's in the report (target)
+- Monthly rating trends
+- Representative customer quotes
+- Automatic theme tagging from review text
+- Rating distribution
+- Mention frequency by topic
+- Editorial dashboard built with Streamlit
 
-- **Split hero** - editorial title, label, and interpretation on the left; vertical stat cards on the right (review count, avg rating, 5-star %, theme count)
-- **Quote strip** - 2-3 representative excerpts tagged by theme
-- **Season arc** - average rating by month (line chart)
-- **What gets mentioned** - theme lollipop bars (keyword buckets, no ML)
-- **Star shape** - 1-5 histogram
-- **Upload** - visitor CSV overrides bundled sample; sidebar hidden
+---
 
-Template copy only in v1 (no AI/Groq). Offline by default.
+## Example Dashboard
 
-## How it works
+### Hero
+
+![Hero](assets/hero.png)
+
+### Charts
+
+![Charts](assets/charts.png)
+
+### Full Report
+
+Full report walkthrough with bundled sample data:
+
+![Demo](assets/demo.gif)
+
+---
+
+## Tech Stack
+
+- Python
+- Streamlit
+- Plotly
+- Pandas
+
+---
+
+## Architecture
 
 ```text
-CSV -> parse.py -> ReviewProfile -> narrate.py (copy) + app.py (Streamlit + Plotly)
+CSV Reviews
+      |
+      v
+parse.py
+      |
+      v
+Theme Extraction
+      |
+      v
+Narrative Generator
+      |
+      v
+Streamlit Dashboard
 ```
 
-- **`parse.py`** - load CSV, coerce dates/ratings, theme keyword tagging, stats for charts
-- **`narrate.py`** - story angles (`MATCHDAY_BUZZ`, `PINT_LED`, `SERVICE_GRUMBLE`, etc.) to title, label, interpretation
-- **`app.py`** - pitch-night CSS, split layout, Plotly charts (port **8502** locally)
+---
 
-## Your data
-
-| File | Purpose |
-|------|---------|
-| `data/sample_pub_reviews.csv` | Bundled demo - 90 synthetic reviews, safe to commit |
-| `data/private_reviews.csv` | Your export - gitignored |
-| `data/uploads/` | Local upload scratch - gitignored |
-
-**Expected columns** (aliases tolerated): `date`, `rating` (1-5), `text`. Optional: `author`, `source` (Google, TripAdvisor).
-
-**Theme tagging (v1):** rule-based keywords - e.g. atmosphere (terrace, buzz, vibe), pint (beer, lager, ale), matchday (kick-off, queue, busy), food (pie, chips, kitchen), service (staff, bar, wait).
-
-## Run locally
-
-**App (main):** double-click `run.bat` - opens **http://localhost:8502** in the browser.
-
-**Parse smoke test:** double-click `run_parse.bat` - terminal stats only (dev harness).
+## Running locally
 
 ```powershell
-cd "C:\AI dreams\business\venue-portrait"
+git clone https://github.com/jmshall93-debug/venue-portrait.git
+cd venue-portrait
 py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\pip install -r requirements.txt
 .\run.bat
 ```
 
+Opens **http://localhost:8502** in your browser.
+
+---
+
+## Your data
+
+Export reviews as a CSV with **date**, **rating** (1-5), and **review text**. Optional columns: author, source (Google, TripAdvisor). A sample dataset for fictional pub **The 90th Minute** is included in `data/sample_pub_reviews.csv`.
+
+---
+
 ## Deploy
 
-*Planned Step 13-14.*
+Host on [Streamlit Community Cloud](https://share.streamlit.io):
 
-- GitHub: [github.com/jmshall93-debug/venue-portrait](https://github.com/jmshall93-debug/venue-portrait)
-- Streamlit Community Cloud, main file `app.py`
-
-## Out of scope (v1)
-
-Multi-venue picker, AI portrait, sentiment ML, scraping Google directly, compare-two-venues.
-
-## Portfolio blurb
-
-**Venue Portrait** - visual review portrait from a customer-review CSV. Rating arc, theme mentions, star distribution, representative quotes. Python, Streamlit, Plotly. Sample pub data included.
-
-## Handover
-
-Full source, demo data, run instructions. Private review exports stay local. Parse layer separate from UI so charts and copy can change independently.
-
+1. Push this repo to GitHub.
+2. Create a new app at share.streamlit.io.
+3. Select repo **venue-portrait**, branch **main**, main file **app.py**.
+4. Deploy.
