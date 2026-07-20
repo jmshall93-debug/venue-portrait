@@ -5,7 +5,7 @@ setlocal
 set "HERE=%~dp0"
 cd /d "%HERE%"
 
-set "PY_SPOTIFY=%HERE%..\spotify-portrait\.venv\Scripts\python.exe"
+set "PY_SPOTIFY=%HERE%..\spotify-analytics\.venv\Scripts\python.exe"
 set "PY_LOCAL=%HERE%.venv\Scripts\python.exe"
 
 if exist "%PY_LOCAL%" (

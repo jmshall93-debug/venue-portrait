@@ -1,18 +1,19 @@
 # Venue Portrait - build log
 
-**Status:** Paused - portfolio #2  
+**Status:** Finished - portfolio #2  
 **Clock:** Stopped at 2026-06-16 15:53:02 +03:00  
 **Session started:** 2026-06-16 15:24:52 +03:00  
 **Session ended:** 2026-06-16 15:53:02 +03:00  
 **This session:** ~28m (Steps 3-9, layout fixes, app running)  
-**Realistic dev time (total):** ~49m so far
+**Realistic dev time (total):** ~49m so far (plus later polish / README asset regen)
 
 | Block | When | Dev time |
 |-------|------|----------|
 | Steps 1-2 - scaffold + sample CSV | 2026-06-11 | ~11m |
 | Cleanup + README + folder consolidation | 2026-06-15 | ~10m |
 | Steps 3-9 - parse, narrate, app shell, hero, stats, quotes | 2026-06-16 | ~28m |
-| **Total** | | **~49m** |
+| README assets + capture script (Playwright) | 2026-07-20 | polish |
+| **Total** | | **~49m + polish** |
 
 Granular build: one step per review. No git push or deploy until Steps 13-14.
 
@@ -43,7 +44,8 @@ Granular build: one step per review. No git push or deploy until Steps 13-14.
 
 ## Next up
 
-- Step 11 - CSV upload override
+- Optional: CSV upload override (Step 11) - not required for portfolio demo
+- Regenerate README assets: `.\.venv\Scripts\python.exe scripts\capture_readme_assets.py --start`
 
 ## Data spec
 

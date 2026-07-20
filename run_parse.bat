@@ -4,7 +4,7 @@ rem Step 6 adds run.bat to launch the Streamlit app in the browser.
 setlocal
 
 set "HERE=%~dp0"
-set "PY_SPOTIFY=%HERE%..\spotify-portrait\.venv\Scripts\python.exe"
+set "PY_SPOTIFY=%HERE%..\spotify-analytics\.venv\Scripts\python.exe"
 set "PY_LOCAL=%HERE%.venv\Scripts\python.exe"
 
 if exist "%PY_SPOTIFY%" (
