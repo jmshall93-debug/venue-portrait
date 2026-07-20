@@ -1,27 +1,36 @@
 ﻿# Venue Portrait
 
-> Editorial review intelligence for pubs, bars, restaurants and hospitality businesses.
+> Review intelligence for hospitality businesses - what customers actually talk about, not just the star average.
 
 **[Live demo](https://venue-portrait-9ytnl8d4uvkcg5sqsbng52.streamlit.app/)** · [Source on GitHub](https://github.com/jmshall93-debug/venue-portrait)
 
-Turn a CSV of customer reviews into an editorial report highlighting what customers actually talk about - not just the average star rating.
+Upload a CSV of customer reviews and get a one-page editorial report: themes, representative quotes, rating trend, and star distribution. Built as a fixed-scope demo for pubs, bars, and restaurants that want clearer signal from Google / TripAdvisor exports.
 
 ![Dashboard](assets/hero.png)
 
 ---
 
-## Features
+## Who it is for
 
-- Monthly rating trends
-- Representative customer quotes
-- Automatic theme tagging from review text
-- Rating distribution
-- Mention frequency by topic
-- Editorial dashboard built with Streamlit
+Hospitality operators and advisers who already have review exports and need a readable summary for ops or board packs - without buying an enterprise review platform.
+
+Demo data: fictional pub **The 90th Minute** (`data/sample_pub_reviews.csv`).
 
 ---
 
-## Example Dashboard
+## Features
+
+- Editorial headline and interpretation from the review set
+- Stat cards (volume, average rating, 5-star share, themes tagged)
+- Representative quotes by theme
+- Season arc - monthly average rating
+- Theme mention frequency
+- Star rating distribution
+- Sample dataset included; private exports stay local
+
+---
+
+## Example dashboard
 
 ### Charts
 
@@ -33,7 +42,7 @@ Turn a CSV of customer reviews into an editorial report highlighting what custom
 
 ---
 
-## Tech Stack
+## Tech stack
 
 - Python
 - Streamlit
@@ -78,4 +87,6 @@ Opens **http://localhost:8502** in your browser.
 
 ## Your data
 
-Export reviews as a CSV with **date**, **rating** (1-5), and **review text**. Optional columns: author, source (Google, TripAdvisor). A sample dataset for fictional pub **The 90th Minute** is included in `data/sample_pub_reviews.csv`.
+Export reviews as a CSV with **date**, **rating** (1-5), and **review text**. Optional columns: author, source (Google, TripAdvisor).
+
+Place a private export at `data/private_reviews.csv` (gitignored) or use the bundled sample to explore the UI.
